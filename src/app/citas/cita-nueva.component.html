@@ -1,0 +1,95 @@
+<form #f="ngForm" (ngSubmit)="guardarCita(f)">
+  <h2 mat-dialog-title>Agrendar nueva cita</h2>
+  <mat-dialog-content>
+    <section
+      fxLayoutAlign="center"
+      style="margin-top: 10px; margin-bottom: 10px"
+    >
+      <mat-card fxFlex="100%">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <mat-form-field style="width: 100%">
+            <mat-label>Ingrese el nombre del paciente</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Sara"
+              name="user"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar el nombre del paciente</mat-error>
+          </mat-form-field>
+
+          <mat-form-field style="width: 100%">
+            <mat-label>Ingrese asunto</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Revision general"
+              name="asunto"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar el asunto de la cita</mat-error>
+          </mat-form-field>
+
+          <mat-form-field style="width: 100%">
+            <mat-label>Ingrese la sede</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ejem. Sede Chapinero"
+              name="sede"
+              ngModel
+              required
+            />
+            <mat-error>Debe ingresar la sede</mat-error>
+          </mat-form-field>
+
+          <mat-form-field style="width: 100%">
+            <mat-label>Seleccione Medico</mat-label>
+            <mat-select
+              [(ngModel)]="selectMedico"
+              name="medico"
+              (selectionChange)="selected($event)"
+            >
+              <mat-option *ngFor="let med of medicos" [value]="med.id">
+                {{ med.nombre + " " + med.apellido }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-form-field style="width: 100%">
+              <input
+                matInput
+                placeholder="Seleccione Fecha de la cita"
+                [matDatepicker]="picker"
+                name="start"
+                [(ngModel)]="fechaStart"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-filed>
+              <input
+                matInput
+                placeholder="hora"
+                name="hora"
+                [(ngModel)]="hora"
+                type="time"
+              />
+            </mat-form-filed>
+          </div>
+
+        </div>
+      </mat-card>
+    </section>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Cerrar</button>
+    <button mat-button type="submit">Guardar</button>
+  </mat-dialog-actions>
+</form>

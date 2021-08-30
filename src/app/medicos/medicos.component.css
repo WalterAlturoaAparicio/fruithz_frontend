@@ -1,0 +1,49 @@
+#boton-agregar {
+  right: 45px;
+  bottom: 45px;
+  left: auto;
+  position: absolute;
+}
+
+.example-container {
+  height: 70%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.mat-cell {
+  width: 25%;
+}
+
+td.mat-column-star {
+  width: 20px;
+  padding-right: 8px;
+}
+
+.mat-table-sticky-border-elem-right {
+  border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
+}
+
+#boton-agregar {
+  right: 45px;
+  bottom: 45px;
+  left: auto;
+  position: absolute;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.section-card-nuevo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.filter-key {
+  padding: 1%;
+}
